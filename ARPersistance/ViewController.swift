@@ -15,6 +15,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
     var refImage: ARReferenceImage!
 	var vase: SCNNode!
+//	var light: SCNLight!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 		// Load vase so we won't have to when placing it
 		let arScene = SCNScene(named: "art.scnassets/vase/vase.scn")
 		vase = arScene!.rootNode.childNode(withName: "box", recursively: false)
+//		light = vase.light!
     }
 
 	let ambientLight = SCNLight()
@@ -73,6 +75,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //3. Adjust The Scene Lighting
         ambientLight.intensity = ambientLightEstimate
         ambientLight.temperature = ambientColourTemperature
+//		light.temperature = ambientColourTemperature
 	}
     
     override func viewWillDisappear(_ animated: Bool) {
